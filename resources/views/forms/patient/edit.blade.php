@@ -20,80 +20,85 @@
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form action="{{ url('forms/patient') }}" method="POST">
+                        <form action="{{ url('forms/patient/'.$patient->id) }}" method="POST">
                             @csrf
+                            @method('PUT')
+
                             <div class="mb-3">
 
                                  <label>Select Patient Category</label>
-                                 <select name="patient_category_id" class="form-control">
+                                 <select name="patient_category_id" class="form-control" selected disabled >
                                      @foreach ($patient_categories as $item)
-                                     <option value="{{ $item->id }}">{{ $item->age_category }}</option>
+                                     <option value="{{ $item->id }}"
+                                                    {{ $patient->patient_category_id == $item->id ? 'selected':'' }}>
+                                                    {{ $item->age_category }}
+                                    </option>
                                      @endforeach
                                  </select>
                             </div>
                             {{-- Forms --}}
 
                             <div class="form-floating mb-3">
-                                <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Lastname *">
+                                <input type="text" name="lastname" id="lastname" value="{{ $patient->lastname }}" class="form-control" placeholder="Lastname *">
                                 <label for="lastname">Lastname</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" name="firstname" id="firstname" class="form-control" placeholder="Firstname *">
+                                <input type="text" name="firstname" id="firstname" value="{{ $patient->firstname }}" class="form-control" placeholder="Firstname *">
                                 <label for="firstname">Firstname</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" name="middlename" id="middlename" class="form-control" placeholder="middlename *">
+                                <input type="text" name="middlename" id="middlename" value="{{ $patient->middlename }}" class="form-control" placeholder="middlename *">
                                 <label for="middlename">Middlename</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" name="suffix" id="suffix" class="form-control" placeholder="Suffix *">
+                                <input type="text" name="suffix" id="suffix" value="{{ $patient->suffix }}" class="form-control" placeholder="Suffix *">
                                 <label for="suffix">Suffix</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" name="age" id="age" class="form-control" placeholder="Age *">
+                                <input type="text" name="age" id="age" value="{{ $patient->age }}" class="form-control" placeholder="Age *">
                                 <label for="age">Age</label>
                             </div>
                             {{-- Radio button --}}
 
                             <div class="form-check mb-3">
-                                <input class="form-check-input" type="radio" name="gender" id="gender" value="Male" checked>
+                                <input class="form-check-input" type="radio" name="gender" id="gender" value=" {{ $patient->gender }} Male" checked>
                                 <label class="form-check-label" for="gender">
                                   Male
                                 </label>
                               </div>
                               <div class="form-check mb-3">
-                                <input class="form-check-input" type="radio" name="gender" id="gender" value="Female" >
+                                <input class="form-check-input" type="radio" name="gender" id="gender"  value="{{ $patient->gender }} Female" >
                                 <label class="form-check-label" for="gender">
                                   Female
                                 </label>
                               </div>
 
                               <div class="form-floating mb-3">
-                                <input type="date" name="birthday" id="birthday" class="form-control" placeholder="Birthday *">
+                                <input type="date" name="birthday" id="birthday"  value="{{ $patient->birthday }}" class="form-control" placeholder="Birthday *">
                                 <label for="birthday">Date of Birth</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="date" name="consult_date" id="consult_date" class="form-control" placeholder="Date of Consult *">
+                                <input type="date" name="consult_date"  value="{{ $patient->consult_date }}" id="consult_date" class="form-control" placeholder="Date of Consult *">
                                 <label for="consult_date">Date of Consult</label>
                             </div>
 
                             <div class="form-floating mb-3">
-                                <input type="text" name="address" id="address" class="form-control" placeholder="Address *">
+                                <input type="text" name="address" id="address"  value="{{ $patient->address }}" class="form-control" placeholder="Address *">
                                 <label for="address">Address</label>
                             </div>
 
                             <div class="form-floating mb-3">
-                                <input type="text" name="religion" id="religion" class="form-control" placeholder="Religion *">
+                                <input type="text" name="religion" id="religion"  value="{{ $patient->religion }}" class="form-control" placeholder="Religion *">
                                 <label for="religion">Religion</label>
                             </div>
 
                             <div class="form-floating mb-3">
-                                <input type="text" name="civil_status" id="civil_status" class="form-control" placeholder="Civil Status *">
+                                <input type="text" name="civil_status" id="civil_status"  value="{{ $patient->civil_status }}" class="form-control" placeholder="Civil Status *">
                                 <label for="civil_status">Civil Status</label>
                             </div>
 
                             <div class="form-floating mb-3">
-                                <input type="text" name="blood_type" id="blood_type" class="form-control" placeholder="Blood Type *">
+                                <input type="text" name="blood_type" id="blood_type" value="{{ $patient->blood_type }}" class="form-control" placeholder="Blood Type *">
                                 <label for="blood_type">Blood Type</label>
                             </div>
 
@@ -130,19 +135,19 @@
                             </div> --}}
 
                             <div class="form-floating mb-3">
-                                <input type="text" name="contact_number" id="contact_number" class="form-control" placeholder="Contact Number *">
+                                <input type="text" name="contact_number" id="contact_number" value="{{ $patient->contact_number }}" class="form-control" placeholder="Contact Number *">
                                 <label for="contact_number">Contact Number</label>
                             </div>
 
                             <label for="contact_number">PHIC Registered?</label>
                              <div class="form-check mb-3">
-                                <input class="form-check-input" type="radio" name="phic_register" id="phic_register" value="Yes" checked>
+                                <input class="form-check-input" type="radio"  name="phic_register" id="phic_register" value=" {{ $patient->phic_register }} Yes" checked>
                                 <label class="form-check-label" for="phic_register">
                                   Yes
                                 </label>
                               </div>
                               <div class="form-check mb-3">
-                                <input class="form-check-input" type="radio" name="phic_register" id="phic_register" value="No" >
+                                <input class="form-check-input" type="radio" name="phic_register" id="phic_register" value=" {{ $patient->phic_register }} No" >
                                 <label class="form-check-label" for="phic_register">
                                   No
                                 </label>
@@ -150,25 +155,25 @@
 
                               <label for="konsulta_provider">with Konsulta Provider?</label>
                              <div class="form-check mb-3">
-                                <input class="form-check-input" type="radio" name="konsulta_provider" id="phic_register" value="Yes" checked>
+                                <input class="form-check-input" type="radio" name="konsulta_provider" id="konsulta_provider" value=" {{ $patient->konsulta_provider }} Yes" checked>
                                 <label class="form-check-label" for="konsulta_provider">
                                   Yes
                                 </label>
                               </div>
                               <div class="form-check mb-3">
-                                <input class="form-check-input" type="radio" name="konsulta_provider" id="konsulta_provider" value="No" >
+                                <input class="form-check-input" type="radio" name="konsulta_provider" id="konsulta_provider" value=" {{ $patient->konsulta_provider }} No" >
                                 <label class="form-check-label" for="konsulta_provider">
                                   No
                                 </label>
                               </div>
 
                               <div class="form-floating mb-3">
-                                <input type="text" name="phic_number" id="phic_number" class="form-control" placeholder="PHIC ID Number *">
+                                <input type="text" name="phic_number" id="phic_number"  value=" {{ $patient->phic_number }} " class="form-control" placeholder="PHIC ID Number *">
                                 <label for="phic_number">PHIC ID #</label>
                             </div>
 
                             <div class="form-floating mb-3">
-                                <input type="text" name="employment_status" id="employment_status" class="form-control" placeholder="Employment Status *">
+                                <input type="text" name="employment_status" id="employment_status" value=" {{ $patient->employment_status }} " class="form-control" placeholder="Employment Status *">
                                 <label for="employment_status">Employment Status</label>
                             </div>
 
@@ -182,44 +187,44 @@
                             </div> --}}
 
                             <div class="form-floating mb-3">
-                                <input type="text" name="pwd_number" id="pwd_number" class="form-control" placeholder="PWD ID Number *">
+                                <input type="text" name="pwd_number" id="pwd_number" value=" {{ $patient->pwd_number }} " class="form-control" placeholder="PWD ID Number *">
                                 <label for="pwd_number">PWD ID #</label>
                             </div>
 
                             <label for="pantawid_pamilya">4Ps?</label>
                             <div class="form-check mb-3">
-                               <input class="form-check-input" type="radio" name="pantawid_pamilya" id="pantawid_pamilya" value="Yes" checked>
+                               <input class="form-check-input" type="radio" name="pantawid_pamilya" id="pantawid_pamilya" value=" {{ $patient->pantawid_pamilya }} Yes" checked>
                                <label class="form-check-label" for="pantawid_pamilya">
                                  Yes
                                </label>
                              </div>
                              <div class="form-check mb-3">
-                               <input class="form-check-input" type="radio" name="pantawid_pamilya" id="pantawid_pamilya" value="No" >
+                               <input class="form-check-input" type="radio" name="pantawid_pamilya" id="pantawid_pamilya" value=" {{ $patient->pantawid_pamilya }} No" >
                                <label class="form-check-label" for="pantawid_pamilya">
                                  No
                                </label>
                              </div>
                              <div class="form-check mb-3">
-                                <input class="form-check-input" type="radio" name="ip_nonip" id="ip_nonip" value="Yes" checked>
+                                <input class="form-check-input" type="radio" name="ip_nonip" id="ip_nonip" value=" {{ $patient->ip_nonip }} Yes" checked>
                                 <label class="form-check-label" for="ip_nonip">
                                   IP
                                 </label>
                               </div>
                               <div class="form-check mb-3">
-                                <input class="form-check-input" type="radio" name="ip_nonip" id="ip_nonip" value="No" >
+                                <input class="form-check-input" type="radio" name="ip_nonip" id="ip_nonip" value=" {{ $patient->ip_nonip }} No" >
                                 <label class="form-check-label" for="ip_nonip">
                                   Non-IP
                                 </label>
                               </div>
 
                               <div class="form-floating mb-3">
-                                <input type="text" name="ethnicity" id="ethnicity" class="form-control" placeholder="Ethnicity *">
+                                <input type="text" name="ethnicity" id="ethnicity" value=" {{ $patient->ethnicity }} " class="form-control" placeholder="Ethnicity *">
                                 <label for="ethnicity">Ethnicity</label>
                             </div>
 
                             {{-- BUTTON SAVE --}}
                             <div class="mb-3">
-                                <button class="btn btn-secondary">Save</button>
+                                <button class="btn btn-success">Update</button>
                             </div>
                         </form>
                     </div>

@@ -20,7 +20,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4>Patient Information Registration
-                        <a href="{{ url('forms/patient/registration') }}" class="btn btn-secondary float-end">Add Patient</a>
+                        <a href="{{ url('forms/patient/registration') }}" class="btn btn-primary float-end">Add Patient</a>
                     </h4>
                 </div>
                 <div class="card-body">
@@ -28,49 +28,30 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
+                                <th>Patient Category</th>
                                 <th>Lastname</th>
                                 <th>Firstname</th>
                                 <th>Middlename</th>
                                 <th>Suffix</th>
                                 <th>Age</th>
-                                <th>Gender</th>
-                                <th>Date of Birth</th>
                                 <th>Date of Consult</th>
                                 <th>Address</th>
-                                <th>Religion</th>
-                                <th>Civil Status</th>
-                                <th>Blood Type</th>
-                                <th>Contact #</th>
-                                <th>PHIC?</th>
-                                <th>Konsulta Provider?</th>
-                                <th>PHIC ID #</th>
-                                <th>4Ps</th>
-                                <th>IP or Non-IP</th>
-                                <th>Ethnicity</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($patient_information as $item)
                             <tr>
                                 <td>{{ $item->id }}</td>
-                                <td>{{ $item->age_category }}</td>
-                                <td>{{ $item->id }}</td>
-                                <td>{{ $item->age_category }}</td>
-                                <td>{{ $item->id }}</td>
-                                <td>{{ $item->age_category }}</td>
-                                <td>{{ $item->id }}</td>
-                                <td>{{ $item->age_category }}</td>
-                                <td>{{ $item->id }}</td>
-                                <td>{{ $item->age_category }}</td>
-                                <td>{{ $item->id }}</td>
-                                <td>{{ $item->age_category }}</td>
-                                <td>{{ $item->id }}</td>
-                                <td>{{ $item->age_category }}</td>
-                                <td>{{ $item->id }}</td>
-                                <td>{{ $item->age_category }}</td>
-
-
-                                <td>Action</td>
+                                <td>{{ $item->patient_category->age_category}}</td>
+                                <td>{{ $item->lastname }}</td>
+                                <td>{{ $item->firstname }}</td>
+                                <td>{{ $item->middlename }}</td>
+                                <td>{{ $item->suffix }}</td>
+                                <td>{{ $item->age }}</td>
+                                <td>{{ $item->consult_date }}</td>
+                                <td><a href="{{ url('forms/patient/'.$item->id.'/edit') }}" class="btn btn-success">Edit</a>
+                                    <a href="{{ url('forms/patient/../edit') }}" class="btn btn-danger">Delete</a>
+                                </td>
                             </tr>
 
                             @endforeach

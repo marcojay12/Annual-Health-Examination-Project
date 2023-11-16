@@ -21,17 +21,22 @@ class PatientInformation extends Model
         'birthday',
         'consult_date',
         'address',
-        'religion',
-        'civil_status',
-        'blood_type',
-        'contact_number',
-        'phic_register',
-        'konsulta_provider',
-        'phic_number',
-        'employment_status',
-        'pwd_number',
-        'pantawid_pamilya',
-        'ip_nonip',
-        'ethnicity'
+         'religion',
+         'civil_status',
+         'blood_type',
+         'contact_number',
+         'phic_register',
+         'konsulta_provider',
+         'phic_number',
+         'employment_status',
+         'pwd_number',
+         'pantawid_pamilya',
+         'ip_nonip',
+         'ethnicity'
     ];
+
+    public function patient_category()
+    {
+        return $this->belongsTo(PatientCategory::class, 'patient_category_id', 'id');
+    }
 }
