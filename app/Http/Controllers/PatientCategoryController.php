@@ -87,8 +87,9 @@ class PatientCategoryController extends Controller
      * @param  \App\Models\PatientCategory  $patientCategory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PatientCategory $patientCategory)
+    public function destroy(int $patient_category_id)
     {
-        //
+        PatientCategory::findOrFail($patient_category_id)->delete();
+        return redirect('forms/category')->with('message', 'Patient Category Deleted with all the files!');
     }
 }

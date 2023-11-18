@@ -19,12 +19,23 @@ return new class extends Migration
             $table->string('lastname');
             $table->string('firstname');
             $table->string('middlename');
-            $table->string('suffix');
-            $table->string('age');
-            $table->string('gender');
-            $table->string('birthday');
-            $table->string('consult_date');
-            $table->string('address');
+            $table->enum('suffix', [
+                'jr',
+                'sr',
+                'II',
+                'III',
+                'IV',
+                'none'
+            ]);
+            $table->integer('age');
+            $table->enum('gender', [
+                'male',
+                'female',
+                'others'
+            ]);
+            $table->string('birthday')->nullable();
+            $table->string('consult_date')->nullable();
+            $table->text('address');
             $table->string('religion');
             $table->string('civil_status');
             $table->string('blood_type');

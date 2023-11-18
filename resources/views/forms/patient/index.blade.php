@@ -11,12 +11,14 @@
 <body>
 <div class="container">
     <div class="row">
+        <h1>Annual Health Examination</h1>
+        <br />
+        <br />
         <div class="col-md-12">
 
-            @if (session('messege'))
+            @if (session('message'))
                 <div class="alert alert-success">{{ session('message') }}</div>
             @endif
-
             <div class="card">
                 <div class="card-header">
                     <h4>Patient Information Registration

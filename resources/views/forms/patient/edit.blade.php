@@ -12,10 +12,13 @@
 <body>
     <div class="container">
         <div class="row">
+            <h1>Annual Health Examination</h1>
+            <br />
+            <br />
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Add patient
+                        <h4>
                             <a href="{{ url('forms/patient') }}" class="btn btn-info float-end">Back</a>
                         </h4>
                     </div>
@@ -61,13 +64,13 @@
                             {{-- Radio button --}}
 
                             <div class="form-check mb-3">
-                                <input class="form-check-input" type="radio" name="gender" id="gender" value=" {{ $patient->gender }} Male" checked>
+                                <input class="form-check-input" type="radio" name="gender" id="gender" value=" {{ $patient->gender }}"checked>
                                 <label class="form-check-label" for="gender">
                                   Male
                                 </label>
                               </div>
                               <div class="form-check mb-3">
-                                <input class="form-check-input" type="radio" name="gender" id="gender"  value="{{ $patient->gender }} Female" >
+                                <input class="form-check-input" type="radio" name="gender" id="gender"  value="{{ $patient->gender }}" >
                                 <label class="form-check-label" for="gender">
                                   Female
                                 </label>
@@ -141,13 +144,13 @@
 
                             <label for="contact_number">PHIC Registered?</label>
                              <div class="form-check mb-3">
-                                <input class="form-check-input" type="radio"  name="phic_register" id="phic_register" value=" {{ $patient->phic_register }} Yes" checked>
+                                <input class="form-check-input" type="radio"  name="phic_register" id="phic_register" value=" {{ $patient->phic_register }}" checked>
                                 <label class="form-check-label" for="phic_register">
                                   Yes
                                 </label>
                               </div>
                               <div class="form-check mb-3">
-                                <input class="form-check-input" type="radio" name="phic_register" id="phic_register" value=" {{ $patient->phic_register }} No" >
+                                <input class="form-check-input" type="radio" name="phic_register" id="phic_register" value=" {{ $patient->phic_register }}" >
                                 <label class="form-check-label" for="phic_register">
                                   No
                                 </label>
@@ -155,13 +158,13 @@
 
                               <label for="konsulta_provider">with Konsulta Provider?</label>
                              <div class="form-check mb-3">
-                                <input class="form-check-input" type="radio" name="konsulta_provider" id="konsulta_provider" value=" {{ $patient->konsulta_provider }} Yes" checked>
+                                <input class="form-check-input" type="radio" name="konsulta_provider" id="konsulta_provider" value=" {{ $patient->konsulta_provider }}" checked>
                                 <label class="form-check-label" for="konsulta_provider">
                                   Yes
                                 </label>
                               </div>
                               <div class="form-check mb-3">
-                                <input class="form-check-input" type="radio" name="konsulta_provider" id="konsulta_provider" value=" {{ $patient->konsulta_provider }} No" >
+                                <input class="form-check-input" type="radio" name="konsulta_provider" id="konsulta_provider" value=" {{ $patient->konsulta_provider }}" >
                                 <label class="form-check-label" for="konsulta_provider">
                                   No
                                 </label>
@@ -193,25 +196,25 @@
 
                             <label for="pantawid_pamilya">4Ps?</label>
                             <div class="form-check mb-3">
-                               <input class="form-check-input" type="radio" name="pantawid_pamilya" id="pantawid_pamilya" value=" {{ $patient->pantawid_pamilya }} Yes" checked>
+                               <input class="form-check-input" type="radio" name="pantawid_pamilya" id="pantawid_pamilya" value=" {{ $patient->pantawid_pamilya }}" checked>
                                <label class="form-check-label" for="pantawid_pamilya">
                                  Yes
                                </label>
                              </div>
                              <div class="form-check mb-3">
-                               <input class="form-check-input" type="radio" name="pantawid_pamilya" id="pantawid_pamilya" value=" {{ $patient->pantawid_pamilya }} No" >
+                               <input class="form-check-input" type="radio" name="pantawid_pamilya" id="pantawid_pamilya" value=" {{ $patient->pantawid_pamilya }}" >
                                <label class="form-check-label" for="pantawid_pamilya">
                                  No
                                </label>
                              </div>
                              <div class="form-check mb-3">
-                                <input class="form-check-input" type="radio" name="ip_nonip" id="ip_nonip" value=" {{ $patient->ip_nonip }} Yes" checked>
+                                <input class="form-check-input" type="radio" name="ip_nonip" id="ip_nonip" value=" {{ $patient->ip_nonip }}" checked>
                                 <label class="form-check-label" for="ip_nonip">
                                   IP
                                 </label>
                               </div>
                               <div class="form-check mb-3">
-                                <input class="form-check-input" type="radio" name="ip_nonip" id="ip_nonip" value=" {{ $patient->ip_nonip }} No" >
+                                <input class="form-check-input" type="radio" name="ip_nonip" id="ip_nonip" value=" {{ $patient->ip_nonip }}" >
                                 <label class="form-check-label" for="ip_nonip">
                                   Non-IP
                                 </label>
